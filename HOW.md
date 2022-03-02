@@ -9,7 +9,7 @@
 `git init`  
 `git add .`  
 `git commit –m "Comment"`  
-**`git remote add origin https://github.com/SergeyHub/roles-permission.git`**  
+**`git remote add origin https://github.com/SergeyHub/manager-rest-api.git`**  
 `git push -u origin master`  
 
 ##### 1.1 Postgersql
@@ -98,3 +98,24 @@ php artisan db:seed --class=ItemsSeeder
 
 - [Postman Tutorial](https://testengineer.ru/gajd-po-testirovaniyu-v-postman/).  
 ![Screenshot](readme/postman_get.JPG) 
+
+##### 5.ItemsController Methods
+```
+ public function index()
+    {
+        $items = Items::all();
+        return response()->json($items);
+    }
+
+public function show($id)
+    {
+        $items = Items::find($id);
+        return response()->json($items);
+    }
+```
+**routes** 
+``` 
+Route::get('api/items', [ItemsController::class, 'index']);
+Route::get('api/items/{id}', [ItemsController::class, 'show']);
+```
+##### 6.ItemsController Methods

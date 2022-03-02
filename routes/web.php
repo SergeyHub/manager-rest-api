@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('api/items', [ItemsController::class, 'index']);
+Route::get('api/items/{id}', [ItemsController::class, 'show']);

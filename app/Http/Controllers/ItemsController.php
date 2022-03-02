@@ -14,7 +14,6 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        echo '123';
         $items = Items::all();
         return response()->json($items);
     }
@@ -48,7 +47,8 @@ class ItemsController extends Controller
      */
     public function show($id)
     {
-        //
+        $items = Items::find($id);
+        return response()->json($items);
     }
 
     /**
