@@ -85,3 +85,12 @@ Schema::create('items', function (Blueprint $table) {
 });
 ```
 `php artisan migrate`
+
+##### 3. Items Factoru Seeder
+```
+php artisan make:factory ItemsFactory
+php artisan make:factory ItemsFactory --model=Items
+php artisan make:seeder ItemsSeeder
+php artisan db:seed --class=ItemsSeeder
+```
+- [Postman Tutorial](https://testengineer.ru/gajd-po-testirovaniyu-v-postman/).
