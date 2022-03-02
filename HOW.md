@@ -25,9 +25,9 @@ Next, you will need to enter a password for the user
 
 ![Screenshot](readme/psql.JPG)   
 
-`postgres=# create database cargo;`  
+`postgres=# create database db_name;`  
   **database list**  
-`select datname from pg_database;` 
+`select datname from pg_database;`   
 pg_dump dbname > outfile 
 
 **`Edit  env. file`**    
@@ -76,7 +76,7 @@ use Illuminate\Support\Facades\Schema;
         Schema::defaultStringLength(191);
     }
 ```
-items table
+**`items table`**
 ```
 Schema::create('items', function (Blueprint $table) {
     $table->id();
@@ -118,4 +118,36 @@ public function show($id)
 Route::get('api/items', [ItemsController::class, 'index']);
 Route::get('api/items/{id}', [ItemsController::class, 'show']);
 ```
-##### 6.ItemsController Methods
+##### 6.Handle POST Request & Insert
+**`app/Http/Middleware/VerifyCsrfToken.php`** 
+```
+protected $except = [
+        'api/*'
+    ];
+```
+**`edit ItemsController`**  
+```
+use Illuminate\Support\Facades\Validator;
+..........................................
+public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'text' => 'required',
+            'body' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return ['response' => $validator->messages(), 'success' => false];
+        }
+
+        $item = new Items();
+        $item->text = $request->input('text');
+        $item->body = $request->input('body');
+        $item->save();
+
+        return response()->json($item);
+    }
+```
+![Screenshot](readme/post1.JPG) 
+
+![Screenshot](readme/mysql.JPG) 
