@@ -22,6 +22,7 @@ as user - postres superuser).
 Next, you will need to enter a password for the user   
 (by default, the postgres user): 123456 (in my case)  
 ```
+
 ![Screenshot](readme/psql.JPG)   
 
 `postgres=# create database cargo;`  
@@ -93,4 +94,7 @@ php artisan make:factory ItemsFactory --model=Items
 php artisan make:seeder ItemsSeeder
 php artisan db:seed --class=ItemsSeeder
 ```
-- [Postman Tutorial](https://testengineer.ru/gajd-po-testirovaniyu-v-postman/).
+##### 4.Postman
+
+- [Postman Tutorial](https://testengineer.ru/gajd-po-testirovaniyu-v-postman/).  
+![Screenshot](readme/postman_get.JPG) 
