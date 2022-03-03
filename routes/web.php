@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('api/items', [ItemsController::class, 'index']);
 Route::get('api/items/{id}', [ItemsController::class, 'show']);
 Route::post('api/items.store', [ItemsController::class, 'store']);
+Route::put('api/items.update/{id}', [ItemsController::class, 'update']);

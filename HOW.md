@@ -151,3 +151,31 @@ public function store(Request $request)
 ![Screenshot](readme/post1.JPG) 
 
 ![Screenshot](readme/mysql.JPG) 
+
+##### 7. ItemsControlley update method
+```
+Route::put('api/items.update/{id}', [ItemsController::class, 'update']);
+
+ public function update(Request $request, $id)
+{
+    $validator = Validator::make($request->all(), [
+        'text' => 'required',
+        'body' => 'required',
+    ]);
+
+    if ($validator->fails()) {
+        return ['response' => $validator->messages(), 'success' => false];
+    }
+
+    $item = Items::find($id);
+    $item->text = $request->input('text');
+    $item->body = $request->input('body');
+    $item->save();
+
+    return response()->json($item);
+}
+```
+
+![Screenshot](readme/put.JPG) 
+
+![Screenshot](readme/edit_3.JPG) 
