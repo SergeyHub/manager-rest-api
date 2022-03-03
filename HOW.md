@@ -179,3 +179,18 @@ Route::put('api/items.update/{id}', [ItemsController::class, 'update']);
 ![Screenshot](readme/put.JPG) 
 
 ![Screenshot](readme/edit_3.JPG) 
+
+##### 8. ItemsControlley destroy method
+```Route::delete('api/items.delete/{id}', [ItemsController::class, 'destroy']);
+
+public function destroy($id)
+    {
+        $items = Items::find($id);
+
+        $items->delete();
+
+        return ['response' => 'Item № '.$id.' deleted',
+                'Item  = ' => $items,
+                'success' => true];
+    }
+```

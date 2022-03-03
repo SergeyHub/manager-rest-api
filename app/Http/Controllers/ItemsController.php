@@ -46,12 +46,12 @@ class ItemsController extends Controller
             return ['response' => $validator->messages(), 'success' => false];
         }
 
-        $item = new Items();
-        $item->text = $request->input('text');
-        $item->body = $request->input('body');
-        $item->save();
+        $items = new Items();
+        $items->text = $request->input('text');
+        $items->body = $request->input('body');
+        $items->save();
 
-        return response()->json($item);
+        return response()->json($items);
     }
 
     /**
@@ -95,12 +95,12 @@ class ItemsController extends Controller
             return ['response' => $validator->messages(), 'success' => false];
         }
 
-        $item = Items::find($id);
-        $item->text = $request->input('text');
-        $item->body = $request->input('body');
-        $item->save();
+        $items = Items::find($id);
+        $items->text = $request->input('text');
+        $items->body = $request->input('body');
+        $items->save();
 
-        return response()->json($item);
+        return response()->json($items);
     }
 
     /**
@@ -111,6 +111,12 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $items = Items::find($id);
+
+        $items->delete();
+
+        return ['response' => 'Item № '.$id.' deleted',
+                'Item  = ' => $items,
+                'success' => true];
     }
 }
