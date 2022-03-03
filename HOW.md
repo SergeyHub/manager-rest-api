@@ -194,3 +194,5 @@ public function destroy($id)
                 'success' => true];
     }
 ```
+##### 9. Create Product Model Table
+
