@@ -195,4 +195,8 @@ public function destroy($id)
     }
 ```
 ##### 9. Create Product Model Table
+`php artisan make:controller ProductController --resource`
+`php artisan migrate:rollback`
 
+##### 10. Posts Section
+`php artisan make:controller PostController`

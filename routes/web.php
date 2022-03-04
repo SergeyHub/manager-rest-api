@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,7 @@ Route::get('api/items/{id}', [ItemsController::class, 'show']);
 Route::post('api/items.store', [ItemsController::class, 'store']);
 Route::put('api/items.update/{id}', [ItemsController::class, 'update']);
 Route::delete('api/items.delete/{id}', [ItemsController::class, 'destroy']);
+
+//  https://jsonplaceholder.typicode.com/posts
+Route::get('/posts', [PostController::class, 'index']);
+
