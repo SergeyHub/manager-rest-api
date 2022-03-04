@@ -22,7 +22,21 @@ class PostController extends Controller
         //return json_decode($posts);
 
         return view("posts", [
+            //"posts" => json_decode($posts)
             "posts" => json_decode($posts)
+        ]);
+    }
+
+    public function fetchJson()
+    {
+
+        $collection = collect($this->posts);
+        $uniqueUserIds=$collection->unique('userId');
+        $countUnique=$collection->countBy('userId');
+
+        return view('list.post',[
+            'uniqueUserIds'=>$uniqueUserIds,
+            'countUnique'=>$countUnique
         ]);
     }
 

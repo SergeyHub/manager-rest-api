@@ -200,4 +200,4 @@ public function destroy($id)
 
 ##### 10. Posts Section
 `php artisan make:controller PostController --resource`
-##### 11. Edit PostController
+##### 11. Edit PostController Post blad views
