@@ -199,4 +199,5 @@ public function destroy($id)
 `php artisan migrate:rollback`
 
 ##### 10. Posts Section
-`php artisan make:controller PostController`
+`php artisan make:controller PostController --resource`
+##### 11. Edit PostController

@@ -27,4 +27,5 @@ Route::delete('api/items.delete/{id}', [ItemsController::class, 'destroy']);
 
 //  https://jsonplaceholder.typicode.com/posts
 Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts{id}', [PostController::class, 'show'])->name('post.show');
 
